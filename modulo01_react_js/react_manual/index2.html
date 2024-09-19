@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Manual Iniciante</title>
+
+    <!-- Carrega o React, React Dom e Babel (usado em sites antigos)-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production. Transpilar jsx -> js -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <!-- Script não de JS, mas do tipo Babel -->
+    <script type="text/babel">
+
+        const Button = () => {
+            return <button>Comprar</button>
+        }
+
+        const MainNav = () => {
+            return <nav>
+                    <ul>
+                        <li><a href="#">Link 1 - Navegação</a></li>
+                        <li><a href="#">Link 2 - Navegação</a></li>
+                    </ul>             
+                
+                </nav>
+        }
+
+        const Produtos = () => {
+
+            const produto1 = 'T-shirt'
+            const produto2 = 'Pants'
+
+            function handleClick(e) {
+                console.log(e)
+            }
+
+
+            return <div>
+                <button onClick={handleClick}>{produto1} - R$ {Math.random() * 100}</button>
+                <button onClick={handleClick}>{produto2} - R$ {Math.random() * 100}</button>
+            </div>
+        }
+        
+        // arrow function
+        const App = () => {
+           return <div>
+                <MainNav />
+                <Produtos />
+                <Button/>
+            </div> 
+        }
+
+        const container = document.getElementById('root')
+        const root = ReactDOM.createRoot(container)
+
+        root.render(
+            <App />
+        )
+
+    </script>
+    
+</body>
+
+</html>
