@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import Dados from "./dados";
 
 const titulo = <h1>Título da página</h1>
 
@@ -23,7 +24,8 @@ const App = () => {
   }
 
   return (
-    <>     
+    <> 
+      <p style={estiloP}>JSX1</p>    
       {titulo}
       {mostrarNome('Theodora')}
       <p>{true ? 'Ativo' : 'Inativo'} - { 10 }</p>
@@ -33,6 +35,9 @@ const App = () => {
       <p style={estiloP}>{carro.modelo}</p>
       <p style={estiloP}>{carro.rodas}</p>
       <p className={ativo ? 'ativo' : 'inativo'}>{nome}</p>
+
+      <p style={estiloP}>JSX2</p>
+      <Dados />
     </>
   )
 }
