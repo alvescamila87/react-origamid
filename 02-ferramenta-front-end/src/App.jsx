@@ -4,7 +4,7 @@ const App = () => {
 
   return (
     <div>
-      App Reacts
+      App Reacts <button>Adicionar</button>
     </div>
   )
 }
