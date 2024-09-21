@@ -1,5 +1,6 @@
 import React from "react";
 import Dados from "./dados";
+import Arrays1 from "./arrays1";
 
 const titulo = <h1>Título da página</h1>
 
@@ -38,6 +39,8 @@ const App = () => {
 
       <p style={estiloP}>JSX2</p>
       <Dados />
+      <p style={estiloP}>JSX1 - Arrays</p>
+      <Arrays1 />
     </>
   )
 }
