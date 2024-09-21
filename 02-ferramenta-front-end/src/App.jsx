@@ -1,6 +1,7 @@
 import React from "react";
 import Dados from "./dados";
 import Arrays1 from "./arrays1";
+import Arrays2 from "./arrays2";
 
 const titulo = <h1>Título da página</h1>
 
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <> 
-      <p style={estiloP}>JSX1</p>    
+      <p style={estiloP}>JSX 1</p>    
       {titulo}
       {mostrarNome('Theodora')}
       <p>{true ? 'Ativo' : 'Inativo'} - { 10 }</p>
@@ -37,10 +38,12 @@ const App = () => {
       <p style={estiloP}>{carro.rodas}</p>
       <p className={ativo ? 'ativo' : 'inativo'}>{nome}</p>
 
-      <p style={estiloP}>JSX2</p>
+      <p style={estiloP}>JSX 2</p>
       <Dados />
-      <p style={estiloP}>JSX1 - Arrays</p>
+      <p style={estiloP}>JSX 2 - Arrays</p>
       <Arrays1 />
+      <p style={estiloP}>JSX 2 - Arrays</p>
+      <Arrays2 />
     </>
   )
 }

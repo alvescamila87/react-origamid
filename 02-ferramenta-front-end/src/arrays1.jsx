@@ -41,6 +41,12 @@ const Arrays1 = () => {
                     <li key={nome}>{nome} - {ano}</li>
                 ))}
         </ul>
+        <h4>Livros: Lista desestruturada no map, com filter 2</h4> 
+        <ul>
+            {livros
+                .filter(livro => livro.ano >= 2020)
+                .map(({nome, ano}) => ( <li key={nome}>{nome} - {ano}</li>))}
+        </ul>
         </div>
     )
 }
