@@ -5,9 +5,20 @@ import Arrays2 from "./jsx/arrays2";
 import Evento from "./eventos/evento";
 import Header from "./componentes/header";
 import Footer from "./componentes/footer";
-import { Form } from "./form/form";
+import Form from "./form/form";
 
 const titulo = <h1>Título da página</h1>
+
+const Teste = () => {
+  const active = true;
+
+  if(active) {
+    return <p>Teste</p>
+  } else {
+    return null
+  }
+
+};
 
 const App = () => {
 
@@ -27,17 +38,6 @@ const App = () => {
   const estiloP = {
     color: 'blue',
     fontSize: "2rem",
-  }
-
-  const Teste = () => {
-    const active = true;
-
-    if(active) {
-      return <p>Teste</p>
-    } else {
-      return null
-    }
-
   }
 
   return (
@@ -62,12 +62,11 @@ const App = () => {
       <p style={estiloP}>Eventos: onClick | handleClick </p>
       <Evento /> 
       <p style={estiloP}>Components</p>      */}
-      <>
-        <Teste />
-        <Header />
-        <Form />
-        <Footer />
-      </>
+
+      <Teste />
+      <Header />
+      <Form />
+      <Footer />
     </>
   )
 }
