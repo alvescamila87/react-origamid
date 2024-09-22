@@ -6,6 +6,10 @@ import Evento from "./eventos/evento";
 import Header from "./componentes/header";
 import Footer from "./componentes/footer";
 import Form from "./form/form";
+import Form2 from "./restSpread/form";
+import Titulo from "./propriedades/titulo";
+import Subtitulo from "./propriedades/subtitulo";
+import Children from "./propriedades/children";
 
 const titulo = <h1>Título da página</h1>
 
@@ -61,12 +65,28 @@ const App = () => {
       <Arrays2 />
       <p style={estiloP}>Eventos: onClick | handleClick </p>
       <Evento /> 
-      <p style={estiloP}>Components</p>      */}
+      <p style={estiloP}>Components</p>     
 
       <Teste />
       <Header />
       <Form />
-      <Footer />
+      <Footer /> */}
+
+      <p style={estiloP}>Propriedade | Props</p>    
+      <Titulo cor="red" texto="Texto para o título 1" /> 
+      <Titulo cor="green" texto="Texto para o título 2" /> 
+      <Subtitulo cor="orange" descricao="Subtítulo para texto" />
+      
+      <p style={estiloP}>Propriedade | Props: Children</p>    
+      <Children 
+        titulo="H1: Título"
+        subtitulo="H2: Subtítulo"
+        descricao="Texto a ser descrito com lorem ipsum">
+      </Children>
+
+      <p style={estiloP}>Propriedade | Props: Rest e Spread</p>
+      <Form2 />  
+
     </>
   )
 }
