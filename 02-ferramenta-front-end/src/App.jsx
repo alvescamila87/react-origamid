@@ -1,8 +1,11 @@
 import React from "react";
-import Dados from "./dados";
-import Arrays1 from "./arrays1";
-import Arrays2 from "./arrays2";
-import Evento from "./evento";
+import Dados from "./jsx/dados";
+import Arrays1 from "./jsx/arrays1";
+import Arrays2 from "./jsx/arrays2";
+import Evento from "./eventos/evento";
+import Header from "./componentes/header";
+import Footer from "./componentes/footer";
+import { Form } from "./form/form";
 
 const titulo = <h1>Título da página</h1>
 
@@ -26,9 +29,20 @@ const App = () => {
     fontSize: "2rem",
   }
 
+  const Teste = () => {
+    const active = true;
+
+    if(active) {
+      return <p>Teste</p>
+    } else {
+      return null
+    }
+
+  }
+
   return (
     <> 
-      <p style={estiloP}>JSX 1</p>    
+      {/* <p style={estiloP}>JSX 1</p>    
       {titulo}
       {mostrarNome('Theodora')}
       <p>{true ? 'Ativo' : 'Inativo'} - { 10 }</p>
@@ -46,7 +60,14 @@ const App = () => {
       <p style={estiloP}>JSX 2 - Arrays</p>
       <Arrays2 />
       <p style={estiloP}>Eventos: onClick | handleClick </p>
-      <Evento />      
+      <Evento /> 
+      <p style={estiloP}>Components</p>      */}
+      <>
+        <Teste />
+        <Header />
+        <Form />
+        <Footer />
+      </>
     </>
   )
 }
