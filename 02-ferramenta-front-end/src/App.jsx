@@ -57,6 +57,24 @@ const App = () => {
     Pagina = Home
   }
 
+  // useState: fonte da verdade
+  //const ativo2 = false;
+
+  // useState: 
+  // const ativoHook = React.useState('test');
+  // console.log(ativoHook)
+  // const ativoValor = ativoHook[0];
+  // const atualizaValor = ativoHook[1];
+
+  // useState: desestruturar
+  const [ativo3, setAtivo3] = React.useState(false);
+  
+
+  function handleClick() {
+    //atualizaValor(!ativoValor)
+    setAtivo3(!ativo3)
+  }
+  
   return (
     <> 
       {/* <p style={estiloP}>JSX 1</p>    
@@ -100,12 +118,17 @@ const App = () => {
       <p style={estiloP}>Propriedade | Props: Rest e Spread</p>
       <Form2 />   */}
 
-      <p style={estiloP}>Desafio Componentes</p>
+      {/* <p style={estiloP}>Desafio Componentes</p>
       <div>
         <Header2 />  
         <Pagina />
-      </div>
-      
+      </div> */}
+
+      <p style={estiloP}>useState()</p>
+      {/* <button disabled={!ativo2}>{ativo2 ? 'Ativo' : 'Inativo'}</button> */}
+      {/* <button onClick={handleClick}>{ativoValor ? 'Ativo' : 'Inativo'}</button> */}
+      <button onClick={handleClick}>{ativo3 ? 'Ativo' : 'Inativo'}</button>
+
 
     </>
   )
