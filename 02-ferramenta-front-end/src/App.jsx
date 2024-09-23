@@ -10,6 +10,9 @@ import Form2 from "./restSpread/form";
 import Titulo from "./propriedades/titulo";
 import Subtitulo from "./propriedades/subtitulo";
 import Children from "./propriedades/children";
+import Header2 from "./desafioComponentes/header";
+import Home from "./desafioComponentes/home";
+import Produtos from "./desafioComponentes/produtos";
 
 const titulo = <h1>Título da página</h1>
 
@@ -44,6 +47,16 @@ const App = () => {
     fontSize: "2rem",
   }
 
+  // desafio de componentes: simulando um router
+  let Pagina = Home;
+  const { pathname } = window.location
+  // console.log(pathname)
+  if(pathname === '/produtos') {
+    Pagina = Produtos
+  } else {
+    Pagina = Home
+  }
+
   return (
     <> 
       {/* <p style={estiloP}>JSX 1</p>    
@@ -70,7 +83,7 @@ const App = () => {
       <Teste />
       <Header />
       <Form />
-      <Footer /> */}
+      <Footer />
 
       <p style={estiloP}>Propriedade | Props</p>    
       <Titulo cor="red" texto="Texto para o título 1" /> 
@@ -85,7 +98,14 @@ const App = () => {
       </Children>
 
       <p style={estiloP}>Propriedade | Props: Rest e Spread</p>
-      <Form2 />  
+      <Form2 />   */}
+
+      <p style={estiloP}>Desafio Componentes</p>
+      <div>
+        <Header2 />  
+        <Pagina />
+      </div>
+      
 
     </>
   )
