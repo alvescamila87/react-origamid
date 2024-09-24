@@ -68,11 +68,16 @@ const App = () => {
 
   // useState: desestruturar
   const [ativo3, setAtivo3] = React.useState(false);
+
+  // useState: multiplos estados
+  const [dados, setDados] = React.useState({ nome: "Madalena", idade: "30"})
+
   
 
   function handleClick() {
     //atualizaValor(!ativoValor)
     setAtivo3(!ativo3)
+    setDados({...dados, faculdade: 'Possui'})
   }
   
   return (
@@ -127,7 +132,13 @@ const App = () => {
       <p style={estiloP}>useState()</p>
       {/* <button disabled={!ativo2}>{ativo2 ? 'Ativo' : 'Inativo'}</button> */}
       {/* <button onClick={handleClick}>{ativoValor ? 'Ativo' : 'Inativo'}</button> */}
-      <button onClick={handleClick}>{ativo3 ? 'Ativo' : 'Inativo'}</button>
+      <div>
+        <p>{dados.nome}</p>
+        <p>{dados.idade}</p>
+        <p>{dados.faculdade}</p>
+        <button onClick={handleClick}>{ativo3 ? 'Ativo' : 'Inativo'}</button>
+      </div>
+      
 
 
     </>
