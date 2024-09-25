@@ -15,6 +15,8 @@ import Home from "./desafioComponentes/home";
 import Produtos from "./desafioComponentes/produtos";
 import ButtonModal from "./useStateProps/ButtonModal";
 import Modal from "./useStateProps/Modal";
+import ButtonModalCallBack from "./useStateCallback/ButtonModal";
+import ModalCallBack from "./useStateCallback/Modal";
 
 const titulo = <h1>Título da página</h1>
 
@@ -75,20 +77,33 @@ const App = () => {
   const [dados, setDados] = React.useState({ nome: "Madalena", idade: "30"})
 
   // useState: Props
-  const [modal, setModal] = React.useState(false);
-
-  
+  const [modal, setModal] = React.useState(false);  
 
   function handleClick() {
     //atualizaValor(!ativoValor)
     setAtivo3(!ativo3)
     setDados({...dados, faculdade: 'Possui'})
   }
+
+  // useState: Reatividade
+  const [items, setItems] = React.useState('Teste');
+
+  function handleClick2() {
+    setItems('Outros')
+  }
+
+  // useState: Callback
+  const [modal2, setModal2] = React.useState(() => {
+    const ativo = window.localStorage.getItem('ativo');
+    return ativo;
+  }); 
+
+  console.log("log")
   
   return (
     <> 
-      {/* <p style={estiloP}>JSX 1</p>    
-      {titulo}
+      <p style={estiloP}>JSX 1</p>    
+      {/* {titulo}
       {mostrarNome('Theodora')}
       <p>{true ? 'Ativo' : 'Inativo'} - { 10 }</p>
       <p>{new Date().getFullYear()}</p>
@@ -96,40 +111,40 @@ const App = () => {
       <p style={estiloP}>{carro.marca}</p>
       <p style={estiloP}>{carro.modelo}</p>
       <p style={estiloP}>{carro.rodas}</p>
-      <p className={ativo ? 'ativo' : 'inativo'}>{nome}</p>
+      <p className={ativo ? 'ativo' : 'inativo'}>{nome}</p> */}
 
       <p style={estiloP}>JSX 2</p>
-      <Dados />
+      {/* <Dados /> */}
       <p style={estiloP}>JSX 2 - Arrays</p>
-      <Arrays1 />
+      {/* <Arrays1 /> */}
       <p style={estiloP}>JSX 2 - Arrays</p>
-      <Arrays2 />
+      {/* <Arrays2 /> */}
       <p style={estiloP}>Eventos: onClick | handleClick </p>
-      <Evento /> 
+      {/* <Evento />  */}
       <p style={estiloP}>Components</p>     
 
-      <Teste />
+      {/* <Teste />
       <Header />
       <Form />
-      <Footer />
+      <Footer /> */}
 
       <p style={estiloP}>Propriedade | Props</p>    
-      <Titulo cor="red" texto="Texto para o título 1" /> 
+      {/* <Titulo cor="red" texto="Texto para o título 1" /> 
       <Titulo cor="green" texto="Texto para o título 2" /> 
-      <Subtitulo cor="orange" descricao="Subtítulo para texto" />
+      <Subtitulo cor="orange" descricao="Subtítulo para texto" /> */}
       
       <p style={estiloP}>Propriedade | Props: Children</p>    
-      <Children 
+      {/* <Children 
         titulo="H1: Título"
         subtitulo="H2: Subtítulo"
         descricao="Texto a ser descrito com lorem ipsum">
-      </Children>
+      </Children> */}
 
       <p style={estiloP}>Propriedade | Props: Rest e Spread</p>
-      <Form2 />   */}
+      {/* <Form2 />   */}
 
-      {/* <p style={estiloP}>Desafio Componentes</p>
-      <div>
+      <p style={estiloP}>Desafio Componentes</p>
+      {/* <div>
         <Header2 />  
         <Pagina />
       </div> */}
@@ -143,11 +158,22 @@ const App = () => {
         <p>{dados.faculdade}</p>
         <button onClick={handleClick}>{ativo3 ? 'Ativo' : 'Inativo'}</button>
       </div> */}
-      <p style={estiloP}>useState: PROPS()</p>
-      <div>
+
+      <p style={estiloP}>useState(): PROPS (modal: onClick)</p>
+      {/* <div>
         {/* <div>{modal ? 'Modal aberto' : 'Modal fechado'}</div> */}
-        <Modal modal={modal} setModal={setModal}/>
+        {/*<Modal modal={modal} setModal={setModal}/>
         <ButtonModal setModal={setModal}/>
+      </div> */}
+
+      <p style={estiloP}>useState(): Reatividade</p>
+      {/* <p>{items}</p>
+      <button onClick={handleClick2}>Clicar</button> */}
+
+      <p style={estiloP}>useState(): Reatividade</p>
+      <div>
+        <ModalCallBack modal={modal} setModal={setModal}></ModalCallBack>
+        <ButtonModalCallBack setModal={setModal} />
       </div>
       
 
