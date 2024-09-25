@@ -13,6 +13,8 @@ import Children from "./propriedades/children";
 import Header2 from "./desafioComponentes/header";
 import Home from "./desafioComponentes/home";
 import Produtos from "./desafioComponentes/produtos";
+import ButtonModal from "./useStateProps/ButtonModal";
+import Modal from "./useStateProps/Modal";
 
 const titulo = <h1>Título da página</h1>
 
@@ -71,6 +73,9 @@ const App = () => {
 
   // useState: multiplos estados
   const [dados, setDados] = React.useState({ nome: "Madalena", idade: "30"})
+
+  // useState: Props
+  const [modal, setModal] = React.useState(false);
 
   
 
@@ -132,11 +137,17 @@ const App = () => {
       <p style={estiloP}>useState()</p>
       {/* <button disabled={!ativo2}>{ativo2 ? 'Ativo' : 'Inativo'}</button> */}
       {/* <button onClick={handleClick}>{ativoValor ? 'Ativo' : 'Inativo'}</button> */}
-      <div>
+      {/* <div>
         <p>{dados.nome}</p>
         <p>{dados.idade}</p>
         <p>{dados.faculdade}</p>
         <button onClick={handleClick}>{ativo3 ? 'Ativo' : 'Inativo'}</button>
+      </div> */}
+      <p style={estiloP}>useState: PROPS()</p>
+      <div>
+        {/* <div>{modal ? 'Modal aberto' : 'Modal fechado'}</div> */}
+        <Modal modal={modal} setModal={setModal}/>
+        <ButtonModal setModal={setModal}/>
       </div>
       
 
