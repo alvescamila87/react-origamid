@@ -98,7 +98,16 @@ const App = () => {
     return ativo;
   }); 
 
-  console.log("log")
+  // useState: Contar
+  const [contar, setContar] = React.useState(1);
+  const [items2, setItems2] = React.useState(['Item 1']);
+
+  function handleClick3() {
+    setContar((contar) => {
+      return contar + 1;
+    })
+    setItems2((items2) => [...items2], 'Item ' + (contar + 1))
+  }
   
   return (
     <> 
@@ -171,11 +180,16 @@ const App = () => {
       <button onClick={handleClick2}>Clicar</button> */}
 
       <p style={estiloP}>useState(): Reatividade</p>
-      <div>
+      {/* <div>
         <ModalCallBack modal={modal} setModal={setModal}></ModalCallBack>
         <ButtonModalCallBack setModal={setModal} />
-      </div>
-      
+      </div> */}
+
+      <p style={estiloP}>useState(): Iterar item</p>
+      <div>
+        {items2.map(item => <li key={item2}>{item2}</li> )}
+        <button onClick={handleClick3}>{contar}</button>
+      </div>      
 
 
     </>
