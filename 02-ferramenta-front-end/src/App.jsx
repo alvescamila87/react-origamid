@@ -19,6 +19,7 @@ import ButtonModalCallBack from "./useStateCallback/ButtonModal";
 import ModalCallBack from "./useStateCallback/Modal";
 import Produto from "./useStateExercicio/produto";
 import MeuProduto from "./useEffectDesmontar/Produto";
+import MeuProduto2 from "./useEffectLocalStorage/Produto";
 
 const titulo = <h1>Título da página</h1>
 
@@ -152,6 +153,23 @@ const App = () => {
 
   //useEffect(): Antes do componente desmontar
   const [ativo4, setAtivo4] = React.useState(false);
+
+  // useState: Produto LocalStorage (Application > LocalStorage)
+  const [produto, setProduto] = React.useState(null);
+
+  React.useEffect(() => {
+    const produtoLocal = window.localStorage.getItem('produto');
+    if(produtoLocal !== null) setProduto(produtoLocal)
+    console.log(produtoLocal)
+  }, [])
+
+  React.useEffect(() => {
+    if(produto !== null) window.localStorage.setItem('produto', produto)
+  }, [produto]);
+
+  function handleClick5({ target }) {    
+    setProduto(target.innerText);
+  }
   
   return (
     <> 
@@ -258,10 +276,18 @@ const App = () => {
       </div> */}
 
       <p style={estiloP}>useEffect(): Efeito antes de desmontar (elemento que vai sair da tela)</p>
-      <div>
+      {/* <div>
         {ativo4 && <MeuProduto />}
         <button onClick={() => setAtivo4(!ativo4)}>Ativar</button>
+      </div> */}
+      <p style={estiloP}>useEffect(): Produto LocalStorage</p>
+      <div>
+        <h1>Preferência: {produto}</h1>
+        <button  onClick={handleClick5} style={{marginRight: "1rem"}}>notebook</button>
+        <button onClick={handleClick5} >smartphone</button>
+        <MeuProduto2 produto={produto}/>
       </div>
+      
     </>
   )
 }
