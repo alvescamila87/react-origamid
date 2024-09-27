@@ -20,6 +20,7 @@ import ModalCallBack from "./useStateCallback/Modal";
 import Produto from "./useStateExercicio/produto";
 import MeuProduto from "./useEffectDesmontar/Produto";
 import MeuProduto2 from "./useEffectLocalStorage/Produto";
+import MeuForm from "./useStateHoraDeCodar/Form";
 
 const titulo = <h1>Título da página</h1>
 
@@ -281,12 +282,14 @@ const App = () => {
         <button onClick={() => setAtivo4(!ativo4)}>Ativar</button>
       </div> */}
       <p style={estiloP}>useEffect(): Produto LocalStorage</p>
-      <div>
+      {/* <div>
         <h1>Preferência: {produto}</h1>
         <button  onClick={handleClick5} style={{marginRight: "1rem"}}>notebook</button>
         <button onClick={handleClick5} >smartphone</button>
         <MeuProduto2 produto={produto}/>
-      </div>
+      </div> */}
+      <p style={estiloP}>useState(): Form Hora de Codar</p>
+      <MeuForm />
       
     </>
   )
