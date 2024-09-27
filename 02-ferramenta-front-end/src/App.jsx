@@ -18,6 +18,7 @@ import Modal from "./useStateProps/Modal";
 import ButtonModalCallBack from "./useStateCallback/ButtonModal";
 import ModalCallBack from "./useStateCallback/Modal";
 import Produto from "./useStateExercicio/produto";
+import MeuProduto from "./useEffectDesmontar/Produto";
 
 const titulo = <h1>Título da página</h1>
 
@@ -125,6 +126,32 @@ const App = () => {
     setDados(json); 
     setCarregando(false);
   }
+
+  //useEffect(): ciclo de vida: Montou
+  const [contar2, setContar2] = React.useState(0);
+
+  //console.log("Executou Fora")
+  React.useEffect(() => {
+    console.log('Executou');
+  }, [])
+
+  // const Titulo = 'Total ';
+  React.useEffect(() => {
+      document.title = "Total " + contar2
+  }, [contar2])
+
+  //useEffect(): Componente Montou
+  const [contar3, setContar3] = React.useState(0);
+  const [dados3, setDados3] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch('https://ranekapi.origamid.dev/json/api/produto/notebook')
+      .then((response) => response.json())
+      .then((json) => setDados3(json));
+  }, [])
+
+  //useEffect(): Antes do componente desmontar
+  const [ativo4, setAtivo4] = React.useState(false);
   
   return (
     <> 
@@ -210,16 +237,31 @@ const App = () => {
         <button onClick={handleClick3}>{contar}</button>
       </div>       */}
       <p style={estiloP}>useState(): Fetch: Exercício puxar dados em formato JSON</p>
-      <div>
+      {/* <div>
         <button style={{ margin: ".5rem" }} onClick={handleClick4}>Notebook</button>
         <button style={{ margin: ".5rem" }} onClick={handleClick4}>Tablet</button>
         <button style={{ margin: ".5rem" }} onClick={handleClick4}>Smartphone</button>  
         {carregando && <p>Carregando...</p>}      
         {!carregando && dados && <Produto dados={dados} />}
-        {/* {dados ? <Produto dados={dados} /> : 'Sem produtos'} */}
-      </div>
-      
+        {dados ? <Produto dados={dados} /> : 'Sem produtos'} 
+      </div> */}
+      <p style={estiloP}>useEffect(): Ciclo de vida: inicial, atualização, desativação para sumir</p>
+      {/* <button onClick={() => setContar2(contar2 + 1)}>{contar2}</button> */}
 
+      <p style={estiloP}>useEffect(): Componente Montou</p>
+      {/* <div>
+        {dados && <div>
+          <h1>{dados3.nome}</h1>
+          <p>R$ {dados3.preco * contar3}</p>
+        </div>}
+      <button onClick={() => setContar3(contar3 + 1)}>{contar3}</button>
+      </div> */}
+
+      <p style={estiloP}>useEffect(): Efeito antes de desmontar (elemento que vai sair da tela)</p>
+      <div>
+        {ativo4 && <MeuProduto />}
+        <button onClick={() => setAtivo4(!ativo4)}>Ativar</button>
+      </div>
     </>
   )
 }
