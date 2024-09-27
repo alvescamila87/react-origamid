@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Dados from "./jsx/dados";
 import Arrays1 from "./jsx/arrays1";
 import Arrays2 from "./jsx/arrays2";
@@ -17,6 +17,7 @@ import ButtonModal from "./useStateProps/ButtonModal";
 import Modal from "./useStateProps/Modal";
 import ButtonModalCallBack from "./useStateCallback/ButtonModal";
 import ModalCallBack from "./useStateCallback/Modal";
+import Produto from "./useStateExercicio/produto";
 
 const titulo = <h1>Título da página</h1>
 
@@ -106,7 +107,23 @@ const App = () => {
     setContar((contar) => {
       return contar + 1;
     })
-    setItems2((items2) => [...items2], 'Item ' + (contar + 1))
+    setItems2((items2) => [...items2, 'Item ' + (contar + 1)])
+  }
+
+  //useState(): Fetch: Exercício puxar dados em formato JSON
+  const [dados2, setDados2] = React.useState(null);
+  const [carregando, setCarregando] = React.useState(null);
+
+  async function handleClick4(event) {
+    setCarregando(true);
+
+    //console.log(event.target.innerText)
+    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`)
+    console.log(response)
+    const json = await response.json()
+    console.log(json)
+    setDados(json); 
+    setCarregando(false);
   }
   
   return (
@@ -186,11 +203,22 @@ const App = () => {
       </div> */}
 
       <p style={estiloP}>useState(): Iterar item</p>
-      <div>
-        {items2.map(item => <li key={item2}>{item2}</li> )}
+      {/* <div>
+        {items2.map(item2 => (
+          <li key={item2}>{item2}</li> 
+        ))}
         <button onClick={handleClick3}>{contar}</button>
-      </div>      
-
+      </div>       */}
+      <p style={estiloP}>useState(): Fetch: Exercício puxar dados em formato JSON</p>
+      <div>
+        <button style={{ margin: ".5rem" }} onClick={handleClick4}>Notebook</button>
+        <button style={{ margin: ".5rem" }} onClick={handleClick4}>Tablet</button>
+        <button style={{ margin: ".5rem" }} onClick={handleClick4}>Smartphone</button>  
+        {carregando && <p>Carregando...</p>}      
+        {!carregando && dados && <Produto dados={dados} />}
+        {/* {dados ? <Produto dados={dados} /> : 'Sem produtos'} */}
+      </div>
+      
 
     </>
   )
