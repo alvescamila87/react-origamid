@@ -21,6 +21,7 @@ import Produto from "./useStateExercicio/produto";
 import MeuProduto from "./useEffectDesmontar/Produto";
 import MeuProduto2 from "./useEffectLocalStorage/Produto";
 import MeuForm from "./useStateHoraDeCodar/Form";
+import Contador from "./useEffectHoraDeCodar/contador";
 
 const titulo = <h1>Título da página</h1>
 
@@ -290,7 +291,8 @@ const App = () => {
       </div> */}
       <p style={estiloP}>useState(): Form Hora de Codar</p>
       <MeuForm />
-      
+      <p style={estiloP}>useEffect(): Count Hora de Codar</p>
+      <Contador />
     </>
   )
 }
