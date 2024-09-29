@@ -22,6 +22,8 @@ import MeuProduto from "./useEffectDesmontar/Produto";
 import MeuProduto2 from "./useEffectLocalStorage/Produto";
 import MeuForm from "./useStateHoraDeCodar/Form";
 import Contador from "./useEffectHoraDeCodar/contador";
+import Video from "./useRef/video";
+import Comentario from "./useRef/comentario";
 
 const titulo = <h1>Título da página</h1>
 
@@ -293,6 +295,10 @@ const App = () => {
       <MeuForm />
       <p style={estiloP}>useEffect(): Count Hora de Codar</p>
       <Contador />
+      <p style={estiloP}>useRef(): Video</p>
+      <Video />
+      <p style={estiloP}>useRef(): Comentários</p>
+      <Comentario />
     </>
   )
 }
