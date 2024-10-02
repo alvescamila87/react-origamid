@@ -1,0 +1,172 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 30,
+      "phone": "555-1234",
+      "email": "johndoe@example.com",
+      "address": [
+        {
+          "street": "123 Main St",
+          "city": "New York",
+          "state": "NY",
+          "zipcode": "10001"
+        },
+        {
+          "street": "456 Broadway",
+          "city": "New York",
+          "state": "NY",
+          "zipcode": "10002"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "age": 25,
+      "phone": "555-5678",
+      "email": "janesmith@example.com",
+      "address": [
+        {
+          "street": "789 Park Ave",
+          "city": "Los Angeles",
+          "state": "CA",
+          "zipcode": "90001"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Michael Johnson",
+      "age": 40,
+      "phone": "555-8765",
+      "email": "michaelj@example.com",
+      "address": [
+        {
+          "street": "321 Elm St",
+          "city": "Chicago",
+          "state": "IL",
+          "zipcode": "60601"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Emily Davis",
+      "age": 22,
+      "phone": "555-4321",
+      "email": "emilyd@example.com",
+      "address": [
+        {
+          "street": "654 Oak St",
+          "city": "Miami",
+          "state": "FL",
+          "zipcode": "33101"
+        },
+        {
+          "street": "987 Pine St",
+          "city": "Orlando",
+          "state": "FL",
+          "zipcode": "32801"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Robert Brown",
+      "age": 35,
+      "phone": "555-3456",
+      "email": "robertb@example.com",
+      "address": [
+        {
+          "street": "112 Maple St",
+          "city": "Houston",
+          "state": "TX",
+          "zipcode": "77001"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Lisa Miller",
+      "age": 28,
+      "phone": "555-6543",
+      "email": "lisam@example.com",
+      "address": [
+        {
+          "street": "223 Cedar St",
+          "city": "Phoenix",
+          "state": "AZ",
+          "zipcode": "85001"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "James Wilson",
+      "age": 50,
+      "phone": "555-7890",
+      "email": "jamesw@example.com",
+      "address": [
+        {
+          "street": "334 Birch St",
+          "city": "San Francisco",
+          "state": "CA",
+          "zipcode": "94101"
+        },
+        {
+          "street": "445 Redwood St",
+          "city": "San Diego",
+          "state": "CA",
+          "zipcode": "92101"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Sophia Moore",
+      "age": 27,
+      "phone": "555-9087",
+      "email": "sophiam@example.com",
+      "address": [
+        {
+          "street": "556 Spruce St",
+          "city": "Austin",
+          "state": "TX",
+          "zipcode": "73301"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "William Taylor",
+      "age": 45,
+      "phone": "555-6789",
+      "email": "williamt@example.com",
+      "address": [
+        {
+          "street": "667 Aspen St",
+          "city": "Denver",
+          "state": "CO",
+          "zipcode": "80201"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Ava Anderson",
+      "age": 33,
+      "phone": "555-2345",
+      "email": "avaa@example.com",
+      "address": [
+        {
+          "street": "778 Cherry St",
+          "city": "Seattle",
+          "state": "WA",
+          "zipcode": "98101"
+        }
+      ]
+    }
+  ]
+}
