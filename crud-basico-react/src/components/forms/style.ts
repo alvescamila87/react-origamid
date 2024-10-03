@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const FormContainer = styled.form`
     background-color: lightgrey;
-    //width: 500px;
-    display: grid;
-    //display: flex;
-    //flex-direction: column;
+    //width: 100%;
+    //display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
+    align-items: center;
 `
 
 export const FormGroup = styled.div`
@@ -27,7 +28,9 @@ export const FormGroup = styled.div`
 
 export const FormContent = styled.div`
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
+
 `
 
 export const FieldsetCustom = styled.fieldset`
@@ -36,4 +39,25 @@ export const FieldsetCustom = styled.fieldset`
     //box-sizing: border-box;
     display: grid;
     gap: 8px;
+`
+export const ButtonsFormContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        &:hover {
+        background: gray;        
+    }        
+    }
+    /* background-color: red; */
+    /* button:hover {
+        background: red;        
+    } */
+      
 `
