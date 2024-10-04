@@ -1,34 +1,43 @@
-import { FormEvent } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import { ButtonsFormContainer, FieldsetCustom, FormContainer, FormContent, FormGroup } from "./style"
-//import { UserRequest } from "../../interfaces/iUser"
+import { UserRequest } from "../../interfaces/iUser"
 
-// const initialValues = {
-//     name: '',
-//     age: 0,
-//     phone: '',
-//     email: '',
-//     address: [{
-//         street: '',
-//         city: '',
-//         state: '',
-//         zipcode: '',
-//     }]
-// }
+const initialValues = {
+    name: '',
+    age: 0,
+    phone: '',
+    email: '',
+    address: [{
+        street: '',
+        city: '',
+        state: '',
+        zipcode: '',
+    }]
+}
 
 export const CreateUsers = () => {
 
-    //const [values, setValues] = useState<UserRequest>(initialValues);
+    const [values, setValues] = useState<UserRequest>(initialValues);
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+
+        setValues((previousValues) => ({
+            ...previousValues,
+            [name]: value,
+        }))
+    }
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        console.log(event)
+        console.log(event, values)
         event.preventDefault();
 
-        const form = event.currentTarget;
+        // const form = event.currentTarget;
 
-        const formData = new FormData(form);  
+        // const formData = new FormData(form);  
         
-        const data = Object.fromEntries(formData.entries())
-        console.log(data)
+        // const data = Object.fromEntries(formData.entries())
+        // console.log(data)
 
         // const data =  Object.fromEntries(
         //     formData.entries()
@@ -46,16 +55,16 @@ export const CreateUsers = () => {
                         <legend>Dados básicos</legend>
                     <FormGroup>
                         <label htmlFor="name">Nome </label>
-                        <input type="text" id="name" name="name"></input>
+                        <input type="text" id="name" name="name" value={values.name} onChange={handleChange}></input>
                            
                     </FormGroup>
                     <FormGroup>
                         <label htmlFor="age">Idade </label>
-                        <input type="number" id="age" name="age"/>
+                        <input type="number" id="age" name="age" value={values.age} onChange={handleChange}/>
                     </FormGroup>
                     <FormGroup>
                         <label htmlFor="phone">Tel </label>
-                        <input type="text" id="phone" name="phone"/>
+                        <input type="text" id="phone" name="phone" value={values.phone} onChange={handleChange}/>
                     </FormGroup>
                     <FormGroup>
                         <label htmlFor="email">E-mail </label>
