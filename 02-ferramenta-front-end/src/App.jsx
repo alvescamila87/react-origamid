@@ -25,6 +25,8 @@ import Contador from "./useEffectHoraDeCodar/contador";
 import Video from "./useRef/video";
 import Comentario from "./useRef/comentario";
 import { Carrinho } from "./useRefSetTimeout/carrinho";
+import Contagem from "./useMemo/contagem";
+import ContagemCallback from "./useCallback/contagemCallback";
 
 const titulo = <h1>Título da página</h1>
 
@@ -302,6 +304,10 @@ const App = () => {
       <Comentario />
       <p style={estiloP}>useRef(): Referência</p>
       <Carrinho />
+      <p style={estiloP}>useMemo(): Count</p>
+      <Contagem />
+      <p style={estiloP}>useCallback(): Count</p>
+      <ContagemCallback />
     </>
   )
 }
