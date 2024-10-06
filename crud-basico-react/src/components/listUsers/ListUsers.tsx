@@ -23,7 +23,7 @@ export const ListUser = ({dados} : ListUserProps ) => {
                         </tr>
                     </thead>
                     <tbody>
-                    {dados.length && dados.map((dado) => (
+                    {dados.length > 0 ? dados.map((dado) => (
                         <tr key={dado.id}>
                             <td>{dado.id}</td>
                             <td>{dado.name}</td>
@@ -36,8 +36,11 @@ export const ListUser = ({dados} : ListUserProps ) => {
                                 <button>Excluir</button>
                             </td>
                         </tr>
-                    ))}
-
+                    )) : (
+                        <tr>
+                            <td colSpan={6}>Nenhum dado disponível</td>
+                        </tr>
+                    )}
                     </tbody>
                 </table>
             </MainCustom>
