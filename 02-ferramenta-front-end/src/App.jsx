@@ -34,6 +34,7 @@ import ProdutoContext2 from "./useContext/produtoContext2";
 import { GlobalStorage2 } from "./useContext/globalContex2";
 import ProdutoContext3 from "./useContext/produtoContext3";
 import { Limpar } from "./useContext/limpar";
+import useLocalStorage from './useCustom/useLocalStorage'
 
 const titulo = <h1>Título da página</h1>
 
@@ -184,6 +185,13 @@ const App = () => {
   function handleClick5({ target }) {    
     setProduto(target.innerText);
   }
+
+  //useCustom: useLocalStorage
+  const [produto7, setProduto7] = useLocalStorage('produto', '');
+
+  function handleClick7({target}) {
+    setProduto7(target.innerText)
+  }
   
   return (
     <> 
@@ -328,6 +336,12 @@ const App = () => {
         <ProdutoContext3 />
         <Limpar />
       </GlobalStorage2>
+      <p style={estiloP}>useCustomHooks() 1 : useLocalStorage</p> 
+      <div>
+        <p>Produto preferido: {produto7}</p>
+        <button onClick={handleClick7}>notebook</button>
+        <button onClick={handleClick7}>smartphone</button>
+      </div>
     </>
   )
 }
