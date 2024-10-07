@@ -31,6 +31,9 @@ import UserContext from "./useContext/userContext";
 import ProdutoContext from "./useContext/produtoContext";
 import { GlobalStorage } from "./useContext/globalContext";
 import ProdutoContext2 from "./useContext/produtoContext2";
+import { GlobalStorage2 } from "./useContext/globalContex2";
+import ProdutoContext3 from "./useContext/produtoContext3";
+import { Limpar } from "./useContext/limpar";
 
 const titulo = <h1>Título da página</h1>
 
@@ -320,6 +323,11 @@ const App = () => {
       <GlobalStorage>
         <ProdutoContext2 />
       </GlobalStorage>
+      <p style={estiloP}>useContext() 2 : Exercício</p> 
+      <GlobalStorage2>
+        <ProdutoContext3 />
+        <Limpar />
+      </GlobalStorage2>
     </>
   )
 }
