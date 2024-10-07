@@ -27,6 +27,10 @@ import Comentario from "./useRef/comentario";
 import { Carrinho } from "./useRefSetTimeout/carrinho";
 import Contagem from "./useMemo/contagem";
 import ContagemCallback from "./useCallback/contagemCallback";
+import UserContext from "./useContext/userContext";
+import ProdutoContext from "./useContext/produtoContext";
+import { GlobalStorage } from "./useContext/globalContext";
+import ProdutoContext2 from "./useContext/produtoContext2";
 
 const titulo = <h1>Título da página</h1>
 
@@ -308,6 +312,14 @@ const App = () => {
       <Contagem />
       <p style={estiloP}>useCallback(): Count</p>
       <ContagemCallback />
+      <p style={estiloP}>useContext() 1 : Props, sem uso de props, apenas com uso de contexto</p>
+      <UserContext.Provider value={{ name: 'Zebedeu'}}>
+        <ProdutoContext />
+      </UserContext.Provider>
+      <p style={estiloP}>useContext() 1 : Exemplo 2: Caso real</p>      
+      <GlobalStorage>
+        <ProdutoContext2 />
+      </GlobalStorage>
     </>
   )
 }
