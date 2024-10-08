@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dados from "./jsx/dados";
 import Arrays1 from "./jsx/arrays1";
 import Arrays2 from "./jsx/arrays2";
@@ -35,6 +35,7 @@ import { GlobalStorage2 } from "./useContext/globalContex2";
 import ProdutoContext3 from "./useContext/produtoContext3";
 import { Limpar } from "./useContext/limpar";
 import useLocalStorage from './useCustom/useLocalStorage'
+import useFetch from "./useCustom/useFetch";
 
 const titulo = <h1>Título da página</h1>
 
@@ -192,6 +193,23 @@ const App = () => {
   function handleClick7({target}) {
     setProduto7(target.innerText)
   }
+
+   //useCustom: useFetch
+   const { request, data, loading, error } = useFetch();
+
+   React.useEffect(() => {
+    async function fetchData() {
+      const {response, json} = await request('https://ranekapi.origamid.dev/json/api/produto/')
+    }
+    fetchData();
+   }, [request]);
+
+   
+   console.log("Dados use Custom: ", data)
+
+   if(error) return <p>{error}</p>
+   if(loading) return <p>Carregando...</p>
+   if(data === null) return null;
   
   return (
     <> 
@@ -342,6 +360,13 @@ const App = () => {
         <button onClick={handleClick7}>notebook</button>
         <button onClick={handleClick7}>smartphone</button>
       </div>
+      <p style={estiloP}>useCustomHooks() 2 : useFetch</p> 
+      <div>
+      {data.map((produto7) => 
+          <div key={produto7.id}><h1>{produto7.nome}</h1></div>
+        )}
+      </div>
+        
     </>
   )
 }
