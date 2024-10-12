@@ -7,11 +7,6 @@ export const Formulario02 = () => {
         email: "",
     });
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        console.log(event);
-    }
-
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         const { id, value } = event.target;
         console.log(id, value);
@@ -20,6 +15,11 @@ export const Formulario02 = () => {
             ...form,
             [id]: value // id e value do input
         });
+    }
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        console.log(event);
     }
 
     return (
