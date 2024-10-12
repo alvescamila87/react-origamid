@@ -8,7 +8,7 @@ const TextArea = () => {
       <textarea 
         value={textArea} 
         onChange={(event) => setTextArea(event.target.value)}
-        rows="5"
+        rows={5}
       />
     </form>
   );
