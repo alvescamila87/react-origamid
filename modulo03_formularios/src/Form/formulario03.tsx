@@ -49,18 +49,36 @@ const formFields = [
   },
 ];
 
+// const forms = formFields.reduce((acc, field) => {
+//     console.log(acc);
+//     return {
+//         ...acc,
+//         [field.id]: '',
+//     }
+// }, {})
+
 export const Formulario03 = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    cep: "",
-    street: "",
-    number: "",
-    neighbor: "",
-    city: "",
-    uf: "",
-  });
+  const [form, setForm] = useState(
+    // name: "",
+    // email: "",
+    // password: "",
+    // cep: "",
+    // street: "",
+    // number: "",
+    // neighbor: "",
+    // city: "",
+    // uf: "",
+    formFields.reduce((acc, field) => {
+        console.log(acc);
+        return {
+            ...acc,
+            [field.id]: '',
+        }
+    }, {})
+
+  );
+
+  const [response, setResponse] = useState(null);
 
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -84,7 +102,10 @@ export const Formulario03 = () => {
         },
         body: JSON.stringify(form),
       })
-        .then((response) => console.log(response))
+        .then((response) => {
+            //console.log(response)
+            setResponse(response);
+        })
   }
 
   return (
@@ -101,6 +122,7 @@ export const Formulario03 = () => {
           />
         </div>
       ))}
+      {response && response.ok && <p>Formulário enviado.</p> }
       <button>Enviar</button>
     </form>
   );
