@@ -1,3 +1,5 @@
+import Checkbox from "./Form/checkbox"
+import CheckboxMultiplos from "./Form/checkboxMultiplos"
 import { Formulario01 } from "./Form/formulario01"
 import { Formulario02 } from "./Form/formulario02"
 import { Formulario03 } from "./Form/formulario03"
@@ -23,6 +25,10 @@ function App() {
       <Select />
       <h2>Form com Radio</h2>
       <Radio />
+      <h2>Form com Checkbox</h2>
+      <Checkbox />
+      <h2>Form com Checkbox múltiplas opções</h2>
+      <CheckboxMultiplos />
     </>
   )
 }
