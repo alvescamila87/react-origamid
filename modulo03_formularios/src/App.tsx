@@ -1,6 +1,7 @@
 import { Formulario01 } from "./Form/formulario01"
 import { Formulario02 } from "./Form/formulario02"
 import { Formulario03 } from "./Form/formulario03"
+import Radio from "./Form/radio"
 import Select from "./Form/select"
 import TextArea from "./Form/textArea"
 
@@ -20,6 +21,8 @@ function App() {
       <TextArea />
       <h2>Form com Select</h2>
       <Select />
+      <h2>Form com Radio</h2>
+      <Radio />
     </>
   )
 }
