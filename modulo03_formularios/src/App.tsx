@@ -1,19 +1,23 @@
-import Checkbox from "./Form/checkbox"
-import CheckboxLabel from "./Form/checkboxLabel"
-import CheckboxMultiplos from "./Form/checkboxMultiplos"
-import { Formulario01 } from "./Form/formulario01"
-import { Formulario02 } from "./Form/formulario02"
-import { Formulario03 } from "./Form/formulario03"
-import Radio from "./Form/radio"
-import Select from "./Form/select"
-import TextArea from "./Form/textArea"
+import { useState } from "react";
+import Input from "./components/FormCustom/Input"
+// import Checkbox from "./Form/checkbox"
+// import CheckboxLabel from "./Form/checkboxLabel"
+// import CheckboxMultiplos from "./Form/checkboxMultiplos"
+// import { Formulario01 } from "./Form/formulario01"
+// import { Formulario02 } from "./Form/formulario02"
+// import { Formulario03 } from "./Form/formulario03"
+// import Radio from "./Form/radio"
+// import Select from "./Form/select"
+// import TextArea from "./Form/textArea"
 
 function App() {
 
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <>
-      <h1>Hello App</h1>
+      {/* <h1>Hello App</h1>
       <h2>Form 01</h2>
       <Formulario01 />
       <h2>Form 02</h2>
@@ -31,7 +35,12 @@ function App() {
       <h2>Form com Checkbox múltiplas opções</h2>
       <CheckboxMultiplos />
       <h2>Form com Checkbox 2 - Label</h2>
-      <CheckboxLabel />
+      <CheckboxLabel /> */}
+      <h2>Form Custom</h2>
+      <form>
+        <Input id="nome" label="Nome" value={nome} setValue={setNome} required />
+        <Input id="email" label="Email" value={email} setValue={setEmail} />
+      </form>
     </>
   )
 }
