@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "./components/FormCustom/Input"
+import Select from "./Form/select";
 // import Checkbox from "./Form/checkbox"
 // import CheckboxLabel from "./Form/checkboxLabel"
 // import CheckboxMultiplos from "./Form/checkboxMultiplos"
@@ -14,6 +15,7 @@ function App() {
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
+  const [produto, setProduto] = useState('');
 
   return (
     <>
@@ -38,8 +40,10 @@ function App() {
       <CheckboxLabel /> */}
       <h2>Form Custom</h2>
       <form>
+        <Select options={['notebook', 'tablet', 'smartphone']} value={produto} setValue={setProduto} {...props}/>
         <Input id="nome" label="Nome" value={nome} setValue={setNome} required />
         <Input id="email" label="Email" value={email} setValue={setEmail} />
+        <button>Enviar</button>
       </form>
     </>
   )
