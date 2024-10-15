@@ -6,15 +6,15 @@ interface SelectProps {
     setValue: (value: string) => void
 }
 
-const Select: FC<SelectProps> = (props) => {
+const Select: FC<SelectProps> = ({ options, value, setValue }) => {
     return (
-        <select value={props.value} onChange={(e) => props.setValue(e.target.value)}>
+        <select value={value} onChange={(e) => setValue(e.target.value)}>
             <option 
                 value="" 
                 disabled
             >Selecione...
             </option>
-            {props.options.map((option, index) => (
+            {options.map((option, index) => (
                 <option key={index} value={option}>{option}</option>
             )
             )}

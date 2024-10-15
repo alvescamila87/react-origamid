@@ -7,16 +7,16 @@ interface InputProps {
     setValue: (value: string) => void
 }
 
-const Input: FC<InputProps> = (props) => {
+const Input: FC<InputProps> = ({id, label, value, setValue}) => {
     return (
         <>
-            <label htmlFor={props.id}>{props.label}</label>
+            <label htmlFor={id}>{label}</label>
             <input 
                 type="text" 
-                name={props.id} 
-                id={props.id}
-                onChange={(e) => props.setValue(e.target.value)}
-                {...props}
+                name={id} 
+                id={id}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}                
             />
         </>
     )
