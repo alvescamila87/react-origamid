@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "./components/FormCustom/Input"
 import Select from "./components/FormCustom/Select";
 import Radio from "./components/FormCustom/Radio";
+import Checkbox from "./components/FormCustom/Checkbox";
 // import Checkbox from "./Form/checkbox"
 // import CheckboxLabel from "./Form/checkboxLabel"
 // import CheckboxMultiplos from "./Form/checkboxMultiplos"
@@ -43,6 +44,8 @@ function App() {
       <CheckboxLabel /> */}
       <h2>Form Custom</h2>
       <form>
+        <h2>Checkbox</h2>
+        <Checkbox options={['Javascript', 'Java', 'React']}/>
         <h2>Cores</h2>
         <Radio 
           options={['Azul', 'Vermelho']} 
