@@ -20,6 +20,12 @@ function App() {
   const [produto, setProduto] = useState('');
   const [cor, setCor] = useState('');
   const [frutas, setFrutas] = useState('');
+  const [linguagens, setLinguagens] = useState<string[]>([]); // Tipo explícito de array de strings
+  const [termos, setTermos] = useState<string[]>([]); // quando o array tiver SOMENTE um elemento
+
+  if(termos.length > 0) { // validação de item único sem precisar outro checkbox
+    console.log("Enviar")
+  }
 
   return (
     <>
@@ -44,8 +50,18 @@ function App() {
       <CheckboxLabel /> */}
       <h2>Form Custom</h2>
       <form>
+        <h2>Checkbox - Termos</h2>
+        <Checkbox 
+          options={['Li e aceito os termos']}
+          value={termos}
+          setValue={setTermos}
+        />
         <h2>Checkbox</h2>
-        <Checkbox options={['Javascript', 'Java', 'React']}/>
+        <Checkbox 
+          options={['Javascript', 'Java', 'React']}
+          value={linguagens}
+          setValue={setLinguagens}
+        />
         <h2>Cores</h2>
         <Radio 
           options={['Azul', 'Vermelho']} 
