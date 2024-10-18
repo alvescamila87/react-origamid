@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Input from "./components/FormCustom/Input"
 import Select from "./components/FormCustom/Select";
 import Radio from "./components/FormCustom/Radio";
@@ -15,6 +15,7 @@ import Checkbox from "./components/FormCustom/Checkbox";
 
 function App() {
 
+  // form custom
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [produto, setProduto] = useState('');
@@ -25,6 +26,31 @@ function App() {
 
   if(termos.length > 0) { // validação de item único sem precisar outro checkbox
     console.log("Enviar")
+  }
+
+  // form custom: validation
+  const [cep, setCep] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  function validateCEP(value: string) {
+    if(value.length === 0) {
+      setError("Preencha o valor para CEP");
+      return false;
+    } else if (!/^\d{5}-?\d{3}$/.test(value)) {
+      setError("Preencha um CEP válido");
+      return false;
+    } else {
+      setError(null);
+      return true;
+    }
+  }
+
+  function handleBlur({target}: ChangeEvent<HTMLInputElement>) {
+    //const regex = /^\d{5}-?\d{3}$/;
+    //const validacao = regex.test(target.value);
+    //console.log(validacao);
+    validateCEP(target.value)
+    console.log(validateCEP(target.value));
   }
 
   return (
@@ -82,6 +108,20 @@ function App() {
         <Input id="nome" label="Nome" value={nome} setValue={setNome} />
         <Input id="email" label="Email" value={email} setValue={setEmail} />
         <button>Enviar</button>
+      </form>
+      <h2>Validation</h2>
+      <form>
+        <Input
+          label="CEP"
+          id="CEP"
+          type="text"
+          value={cep}
+          setValue={setCep}
+          onBlur={handleBlur} //validation
+          placeholder={"00000-000"}
+        />
+        {cep}
+        {error && <p>{error}</p>}
       </form>
     </>
   )
