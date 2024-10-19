@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Input from "./components/FormCustom/Input"
 import Select from "./components/FormCustom/Select";
 import Radio from "./components/FormCustom/Radio";
@@ -52,6 +52,22 @@ function App() {
     validateCEP(target.value)
     console.log(validateCEP(target.value));
   }
+
+  function handleChange({target}: ChangeEvent<HTMLInputElement>) {
+    if(error) validateCEP(target.value);
+    setCep(target.value)
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if(validateCEP(cep)) {
+      console.log("Enviou. Faz fetch na API")
+    } else {
+      console.log("Não enviar. Exibe erro")
+    }
+  }
+
+
 
   return (
     <>
@@ -110,18 +126,20 @@ function App() {
         <button>Enviar</button>
       </form>
       <h2>Validation</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           label="CEP"
           id="CEP"
           type="text"
           value={cep}
-          setValue={setCep}
+          onChange={handleChange}
+          //setValue={setCep}
           onBlur={handleBlur} //validation
           placeholder={"00000-000"}
         />
         {cep}
         {error && <p>{error}</p>}
+        <button>Enviar</button>
       </form>
     </>
   )
