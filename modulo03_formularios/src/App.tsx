@@ -3,6 +3,7 @@ import Input from "./components/FormCustom/Input"
 import Select from "./components/FormCustom/Select";
 import Radio from "./components/FormCustom/Radio";
 import Checkbox from "./components/FormCustom/Checkbox";
+import useForm from "./customHook/useForm";
 // import Checkbox from "./Form/checkbox"
 // import CheckboxLabel from "./Form/checkboxLabel"
 // import CheckboxMultiplos from "./Form/checkboxMultiplos"
@@ -29,45 +30,59 @@ function App() {
   }
 
   // form custom: validation
-  const [cep, setCep] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  // const [cep, setCep] = useState('');
+  // const [error, setError] = useState<string | null>(null);
 
-  function validateCEP(value: string) {
-    if(value.length === 0) {
-      setError("Preencha o valor para CEP");
-      return false;
-    } else if (!/^\d{5}-?\d{3}$/.test(value)) {
-      setError("Preencha um CEP válido");
-      return false;
-    } else {
-      setError(null);
-      return true;
-    }
-  }
+  // function validateCEP(value: string) {
+  //   if(value.length === 0) {
+  //     setError("Preencha o valor para CEP");
+  //     return false;
+  //   } else if (!/^\d{5}-?\d{3}$/.test(value)) {
+  //     setError("Preencha um CEP válido");
+  //     return false;
+  //   } else {
+  //     setError(null);
+  //     return true;
+  //   }
+  // }
 
-  function handleBlur({target}: ChangeEvent<HTMLInputElement>) {
-    //const regex = /^\d{5}-?\d{3}$/;
-    //const validacao = regex.test(target.value);
-    //console.log(validacao);
-    validateCEP(target.value)
-    console.log(validateCEP(target.value));
-  }
+  // function handleBlur({target}: ChangeEvent<HTMLInputElement>) {
+  //   //const regex = /^\d{5}-?\d{3}$/;
+  //   //const validacao = regex.test(target.value);
+  //   //console.log(validacao);
+  //   validateCEP(target.value)
+  //   console.log(validateCEP(target.value));
+  // }
 
-  function handleChange({target}: ChangeEvent<HTMLInputElement>) {
-    if(error) validateCEP(target.value);
-    setCep(target.value)
-  }
+  // function handleChange({target}: ChangeEvent<HTMLInputElement>) {
+  //   if(error) validateCEP(target.value);
+  //   setCep(target.value)
+  // }
+
+  // function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  //   event.preventDefault();
+  //   if(validateCEP(cep)) {
+  //     console.log("Enviou. Faz fetch na API")
+  //   } else {
+  //     console.log("Não enviar. Exibe erro")
+  //   }
+  // }
+
+
+  // form custom: customHook useForm
+  const cep = useForm('cep')
+  const email2 = useForm('email')
+  const nome2 = useForm(); // para não passar regex, deixa em branco, omitindo o tipo geral.
+  const sobrenome2 = useForm(); // para não passar regex, deixa em branco, omitindo o tipo geral.
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if(validateCEP(cep)) {
+    if (cep.validate() && email.validate() && nome.validate()) {
       console.log("Enviou. Faz fetch na API")
     } else {
       console.log("Não enviar. Exibe erro")
     }
   }
-
-
 
   return (
     <>
@@ -126,7 +141,7 @@ function App() {
         <button>Enviar</button>
       </form>
       <h2>Validation</h2>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <Input
           label="CEP"
           id="CEP"
@@ -139,6 +154,29 @@ function App() {
         />
         {cep}
         {error && <p>{error}</p>}
+        <button>Enviar</button>
+      </form> */}
+      <h2>Validation useForm: customHook</h2>
+      <form onSubmit={handleSubmit}>
+        <Input
+          label="Nome"
+          id="nome"
+          type="text"
+          {...nome2} // Spread para passar value, onChange, onBlur e error
+        />
+        <Input
+          label="CEP"
+          id="CEP"
+          type="text"          
+          placeholder={"00000-000"}
+          {...cep} // Spread para passar value, onChange, onBlur e error
+        />
+        <Input
+          label="Email"
+          id="email"
+          type="email"
+          {...email2} // Spread para passar value, onChange, onBlur e error
+        />
         <button>Enviar</button>
       </form>
     </>
