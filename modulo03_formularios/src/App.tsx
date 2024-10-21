@@ -4,6 +4,7 @@ import Select from "./components/FormCustom/Select";
 import Radio from "./components/FormCustom/Radio";
 import Checkbox from "./components/FormCustom/Checkbox";
 import useForm from "./customHook/useForm";
+import RadioChallenge from "./Challenge/RadioChallenge";
 // import Checkbox from "./Form/checkbox"
 // import CheckboxLabel from "./Form/checkboxLabel"
 // import CheckboxMultiplos from "./Form/checkboxMultiplos"
@@ -13,6 +14,43 @@ import useForm from "./customHook/useForm";
 // import Radio from "./Form/radio"
 // import Select from "./Form/select"
 // import TextArea from "./Form/textArea"
+
+// desafio formulário
+const perguntas = [
+  {
+    pergunta: 'Qual método é utilizado para criar componentes?',
+    options: [
+      'React.makeComponent()',
+      'React.createComponent()',
+      'React.createElement()',
+    ],
+    resposta: 'React.createElement()',
+    id: 'p1',
+  },
+  {
+    pergunta: 'Como importamos um componente externo?',
+    options: [
+      'import Component from "./Component"',
+      'require("./Component")',
+      'import "./Component"',
+    ],
+    resposta: 'import Component from "./Component"',
+    id: 'p2',
+  },
+  {
+    pergunta: 'Qual hook não é nativo?',
+    options: ['useEffect()', 'useFetch()', 'useCallback()'],
+    resposta: 'useFetch()',
+    id: 'p3',
+  },
+  {
+    pergunta: 'Qual palavra deve ser utilizada para criarmos um hook?',
+    options: ['set', 'get', 'use'],
+    resposta: 'use',
+    id: 'p4',
+  },
+];
+
 
 function App() {
 
@@ -81,6 +119,41 @@ function App() {
       console.log("Enviou. Faz fetch na API")
     } else {
       console.log("Não enviar. Exibe erro")
+    }
+  }
+
+  // desafio formulário
+  const [respostas, setRespostas] = useState<{[key: string]: string}>({
+    p1: '',
+    p2: '',
+    p3: '',
+    p4: '',
+  });
+
+  function handleChange({target}: ChangeEvent<HTMLInputElement>) {
+    //console.log(target)
+    setRespostas({
+      ...respostas,
+      [target.id]: target.value // igual a fazer 'p1'
+    })
+  }
+
+  const [slide, setSlide] = useState(0);
+  const [resultado, setResultado] = useState<string | null>(null);
+
+  function resultadoFinal() {
+    const corretas = perguntas.filter(
+      ({id, resposta}) => respostas[id] === resposta,
+    );
+    setResultado(`Você acertou: ${corretas.length} de ${perguntas.length}`);
+  }
+
+  function handleClick() {
+    if(slide < perguntas.length - 1) {
+      setSlide(slide + 1);
+    } else {
+      setSlide(slide + 1);
+      resultadoFinal();
     }
   }
 
@@ -178,6 +251,24 @@ function App() {
           {...email2} // Spread para passar value, onChange, onBlur e error
         />
         <button>Enviar</button>
+      </form>
+      <h2>Desafio Formularios</h2>
+      <form onSubmit={(event) => event.preventDefault()}>
+        {perguntas.map((pergunta, index) => 
+          <RadioChallenge 
+            active={slide === index}
+            key={pergunta.id} 
+            onChange={handleChange}
+            //value={pergunta[pergunta.id]}
+            value={respostas[pergunta.id]}
+            { ...pergunta}
+          />
+        )}
+        {resultado ? (
+          <p>{resultado}</p>
+        ) : (        
+        <button onClick={handleClick}>Próxima</button>
+        )}
       </form>
     </>
   )
