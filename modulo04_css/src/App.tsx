@@ -1,8 +1,12 @@
 import './App.css';
+import { Title } from './cssImport/Title';
 
 function App() {
   return (
-    <div className="container"></div>
+    <div className="container">
+      <Title />
+    </div>
+
   )
 }
 
