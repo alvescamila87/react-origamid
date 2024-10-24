@@ -56,6 +56,7 @@ function App() {
       <Titulo>Styled Components Title</Titulo>
       <Paragrafo corFundo={"#faee0a"}>Learning about application styled components</Paragrafo>
       <Adicionar ativo={ativo} onClick={handleClick}>Adicionar itens</Adicionar>
+      <h3>css Frameworks</h3>
     </>
 
   )
