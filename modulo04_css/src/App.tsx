@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Title } from './cssImport/Title';
 import { Produto } from './cssModules/components/Produto';
 import { useState } from 'react';
+import foto from "./assets/dog.webp";
 
 type ParagrafoProps = {
   corFundo: string,
@@ -57,6 +58,10 @@ function App() {
       <Paragrafo corFundo={"#faee0a"}>Learning about application styled components</Paragrafo>
       <Adicionar ativo={ativo} onClick={handleClick}>Adicionar itens</Adicionar>
       <h3>css Frameworks</h3>
+      <h3>Imagens</h3>
+      <div>
+        <img src={foto} alt="dog" />
+      </div>
     </>
 
   )
